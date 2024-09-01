@@ -1,25 +1,27 @@
 #imports
 import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
-import numpy as np
 from sklearn.preprocessing import StandardScaler
 from sklearn import metrics
 #defing dataframe
 df = pd.read_csv(r"Housing.csv")
 #cleaning nonbinary entries
-df['mainroad'] = df['mainroad'].replace("Yes", 1)
-df['mainroad'] = df['mainroad'].replace("No", 0)
-df['guestroom'] = df['guestroom'].replace("Yes", 1)
-df['guestroom'] = df['guestroom'].replace("No", 0)
-df['basement'] = df['basement'].replace("Yes", 1)
-df['basement'] = df['basement'].replace("No", 0)
-df['hotwaterheating'] = df['hotwaterheating'].replace("Yes", 1)
-df['hotwaterheating'] = df['hotwaterheating'].replace("No", 0)
-df['airconditioning'] = df['airconditioning'].replace("Yes", 1)
-df['airconditioning'] = df['airconditioning'].replace("No", 0)
+df['mainroad'] = df['mainroad'].replace("yes", 1)
+df['mainroad'] = df['mainroad'].replace("no", 0)
+df['guestroom'] = df['guestroom'].replace("yes", 1)
+df['guestroom'] = df['guestroom'].replace("no", 0)
+df['basement'] = df['basement'].replace("yes", 1)
+df['basement'] = df['basement'].replace("no", 0)
+df['hotwaterheating'] = df['hotwaterheating'].replace("yes", 1)
+df['hotwaterheating'] = df['hotwaterheating'].replace("no", 0)
+df['airconditioning'] = df['airconditioning'].replace("yes", 1)
+df['airconditioning'] = df['airconditioning'].replace("no", 0)
+df['prefarea'] = df['prefarea'].replace("yes", 1)
+df['prefarea'] = df['prefarea'].replace("no", 0)
+df['furnishingstatus'] = df['furnishingstatus'].replace("unfurnished", 0)
+df['furnishingstatus'] = df['furnishingstatus'].replace("semi-furnished", 0.5)
+df['furnishingstatus'] = df['furnishingstatus'].replace("furnished", 1)
 #defining x to be the dataset other than the value that is to be reserved for y and predicted
 X = df.drop('price', axis=1)
 y = df['price']
